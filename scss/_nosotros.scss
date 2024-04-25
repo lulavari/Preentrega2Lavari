@@ -1,0 +1,29 @@
+/* Nosotros*/
+.paragraph-one {
+    font-size:large;
+    color: $color-primario;
+    text-align:center;
+    font-style: italic;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    padding: 20px;
+}
+
+.imagenoptica{
+    width: 80%;
+    object-fit: cover;
+    margin: 50px 120px;
+}
+.nuestras-marcas{
+    font-size:40px;
+    color: $color-contraste;
+    text-align: center;
+    background-color: $color-primario; 
+}
+
+.marcas{
+    width:80%;
+    margin: auto;
+    object-fit: cover;
+    
+}

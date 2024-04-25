@@ -1,0 +1,43 @@
+
+/* Contacto*/
+
+.formulario-contacto{
+    background-color: $color-secundario;
+    width: 550px;
+    margin: 50px auto 50px auto;
+    padding: 10px;
+    border-radius: 5px;
+}
+   
+.form-contactos-grupo{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 10px;
+}
+
+.form-contactos-grupo-label{
+    color: $color-contraste;
+}
+.form-contactos-grupo-input{
+    width: 100%;
+    background-color: transparent;
+    color: $color-contraste;
+    border: 1px solid $color-contraste;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.form-contactos-grupo-input::placeholder{
+    color: $color-contraste;
+}
+
+
+.botonformulario{ 
+    width: 100%;
+    background-color: $color-contraste;
+    color: $color-secundario;
+    border: 0;
+    font-weight: bold;
+    padding: 10px 5px;
+    border-radius: 5px;
+}
