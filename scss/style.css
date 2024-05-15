@@ -24,13 +24,14 @@
   justify-content: space-between;
   align-items: center;
 }
-.navegador .ícono-menu {
+
+.ícono-menu {
   color: black;
   font-size: 25px;
   display: none;
 }
 @media (max-width: 576px) {
-  .navegador .ícono-menu {
+  .ícono-menu {
     display: block;
   }
 }
@@ -71,6 +72,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .cuotas {
@@ -156,6 +158,7 @@
   flex-wrap: wrap;
   justify-content: space-around;
   gap: 25px;
+  margin-bottom: 25px;
 }
 .tarjetas título {
   color: white;
@@ -165,11 +168,11 @@
 }
 
 .sol {
-  width: 300px;
+  width: 250px;
   font-size: small;
   background-color: #730D0D;
   margin: 10px;
-  padding: 25px;
+  padding: 25px 10px 25px 10px;
   display: flex;
   position: relative;
   flex-direction: column;
@@ -184,11 +187,11 @@
 }
 
 .rx {
-  width: 300px;
+  width: 250px;
   font-size: small;
   background-color: #730D0D;
   margin: 10px;
-  padding: 25px;
+  padding: 25px 10px 25px 10px;
   display: flex;
   position: relative;
   flex-direction: column;
@@ -203,11 +206,11 @@
 }
 
 .lc {
-  width: 300px;
+  width: 250px;
   font-size: small;
   background-color: #730D0D;
   margin: 10px;
-  padding: 25px;
+  padding: 25px 10px 25px 10px;
   display: flex;
   position: relative;
   flex-direction: column;
@@ -225,7 +228,7 @@
   background-color: white;
   color: #730D0D;
   border: 0px;
-  transform: translateX(65px);
+  transform: translate(65px);
   transition: 0, 5s;
 }
 .botonver:hover {
@@ -272,6 +275,7 @@
   margin: 50px auto 50px auto;
   padding: 10px;
   border-radius: 5px;
+  translate: 250px;
 }
 
 .form-contactos-grupo {
@@ -302,6 +306,11 @@
   color: white;
 }
 
+.mapa {
+  padding: 20px;
+  translate: 0px -350px;
+}
+
 .botonformulario {
   width: 100%;
   background-color: white;
@@ -312,14 +321,38 @@
   border-radius: 5px;
 }
 
+.redes-container {
+  margin: 0;
+  display: flex;
+  translate: 700px -400px;
+  list-style: none;
+}
+
+a {
+  color: #730D0D;
+  margin: 10px;
+  justify-content: flex-end;
+}
+
 /*Footer*/
 .piedepagina {
-  padding: 10px;
-  font-size: medium;
+  padding: 20px;
+  font-size: small;
   color: white;
   background-color: black;
   text-align: center;
   font-family: "Montserrat", sans-serif;
+}
+
+.info {
+  padding: 20px;
+  text-align: center;
+}
+
+.redes-footer {
+  padding: 20px;
+  font-size: 20px;
+  color: white;
 }
 
 /*Media Query*//*# sourceMappingURL=style.css.map */

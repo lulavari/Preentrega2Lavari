@@ -7,6 +7,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
 .ícono-menu {
     color: black;
     font-size: 25px;
@@ -14,9 +16,8 @@
     @media (max-width: 576px){
         display: block;
     }
-        
-    }
-}
+ }
+
 
 .logo {
     width: 10%;
@@ -29,7 +30,7 @@
    gap: 20px;
    padding: 40px 10px;
    text-align: right;
-   font-weight: bold
+   font-weight: bold;
 }
 
 .navegador-link{

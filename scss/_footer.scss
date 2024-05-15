@@ -1,10 +1,19 @@
 
 /*Footer*/
 .piedepagina {
-    padding: 10px;
-    font-size: medium;
+    padding: 20px;
+    font-size: small;
     color: $color-contraste;
     background-color:black;
     text-align: center;
     font-family: "Montserrat", sans-serif;
+}
+.info{
+    padding: 20px;
+    text-align: center;
+}
+.redes-footer{
+    padding: 20px;
+    font-size: 20px;
+    color: $color-contraste;
 }
