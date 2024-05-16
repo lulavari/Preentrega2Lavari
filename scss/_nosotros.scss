@@ -21,8 +21,33 @@
     background-color: $color-primario; 
 }
 
-.marcas{
-    width:80%;
-    margin: auto;
-    object-fit: cover;
+.slider-frame{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    
+}
+
+.slider-frame ul{
+    display: flex;
+    padding: 0;
+    width: calc(200px * 16);
+    animation: slide 20s infinite linear;
+    -webkit-animation: slide 20s infinite linear;
+}
+
+.slider-frame li{
+    list-style: none;
+    width: 200%;
+}
+
+@keyframes slide {
+   0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+   }
+   100%{
+    -webkit-transform:translateX(calc(-200px * 8)) ;
+    transform: translate(calc(-200px * 8));
+   }
 }

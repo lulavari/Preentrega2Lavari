@@ -261,13 +261,33 @@
   background-color: #8C0303;
 }
 
-.marcas {
-  width: 80%;
-  margin: auto;
-  -o-object-fit: cover;
-     object-fit: cover;
+.slider-frame {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
 }
 
+.slider-frame ul {
+  display: flex;
+  padding: 0;
+  width: 3200px;
+  animation: slide 20s infinite linear;
+  -webkit-animation: slide 20s infinite linear;
+}
+
+.slider-frame li {
+  list-style: none;
+  width: 200%;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translate(-1600px);
+  }
+}
 /* Contacto*/
 .formulario-contacto {
   background-color: #730D0D;
@@ -337,7 +357,7 @@ a {
 /*Footer*/
 .piedepagina {
   padding: 20px;
-  font-size: small;
+  font-size: smaller;
   color: white;
   background-color: black;
   text-align: center;
