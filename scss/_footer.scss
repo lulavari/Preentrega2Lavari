@@ -2,7 +2,6 @@
 /*Footer*/
 .piedepagina {
     padding: 20px;
-    font-size:smaller;
     color: $color-contraste;
     background-color:black;
     text-align: center;
@@ -11,9 +10,13 @@
 .info{
     padding: 20px;
     text-align: center;
+    font-size: small;
 }
 .redes-footer{
     padding: 20px;
-    font-size: 20px;
-    color: $color-contraste;
+    color:$color-secundario;
+    font-size:x-large;
+}
+.copy {
+   font-size: x-small;
 }

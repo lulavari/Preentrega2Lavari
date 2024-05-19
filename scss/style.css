@@ -26,21 +26,17 @@
 }
 
 .ícono-menu {
-  color: black;
   font-size: 25px;
+  color: white;
   display: none;
-}
-@media (max-width: 576px) {
-  .ícono-menu {
-    display: block;
-  }
 }
 
 .logo {
   width: 10%;
   height: 10%;
-  position: relative;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  float: left;
 }
 
 .navegador-links {
@@ -60,6 +56,24 @@
   text-decoration: none;
 }
 
+@media (max-width: 1024px) {
+  header {
+    position: relative;
+  }
+  .ícono-menu {
+    display: flex;
+    position: absolute;
+    font-size: 25px;
+    color: #730D0D;
+    margin: 10px;
+    top: 0;
+    right: 0;
+    text-align: center;
+  }
+  .navegador-links {
+    display: none;
+  }
+}
 /*Inicio*/
 .portada-imagen {
   width: 100%;
@@ -291,11 +305,10 @@
 /* Contacto*/
 .formulario-contacto {
   background-color: #730D0D;
-  width: 550px;
-  margin: 50px auto 50px auto;
+  width: 500px;
+  margin: 20px auto 20px auto;
   padding: 10px;
   border-radius: 5px;
-  translate: 250px;
 }
 
 .form-contactos-grupo {
@@ -326,11 +339,6 @@
   color: white;
 }
 
-.mapa {
-  padding: 20px;
-  translate: 0px -350px;
-}
-
 .botonformulario {
   width: 100%;
   background-color: white;
@@ -339,25 +347,36 @@
   font-weight: bold;
   padding: 10px 5px;
   border-radius: 5px;
+  text-align: center;
 }
 
-.redes-container {
-  margin: 0;
-  display: flex;
-  translate: 700px -400px;
-  list-style: none;
-}
-
-a {
+.info p {
+  font-size: 30px;
   color: #730D0D;
-  margin: 10px;
-  justify-content: flex-end;
+  display: flex;
+  text-decoration: underline;
+  justify-content: center;
+  text-align: center;
+}
+
+.info a {
+  font-size: 20px;
+  display: flex;
+  text-decoration: none;
+  width: 100%;
+  margin: 15px 0 15px 5px;
+  color: #730D0D;
+  font-weight: 500px;
+  justify-content: center;
+}
+
+.mapa {
+  margin: auto 20px auto 20px;
 }
 
 /*Footer*/
 .piedepagina {
   padding: 20px;
-  font-size: smaller;
   color: white;
   background-color: black;
   text-align: center;
@@ -367,12 +386,17 @@ a {
 .info {
   padding: 20px;
   text-align: center;
+  font-size: small;
 }
 
 .redes-footer {
   padding: 20px;
-  font-size: 20px;
-  color: white;
+  color: #730D0D;
+  font-size: x-large;
+}
+
+.copy {
+  font-size: x-small;
 }
 
 /*Media Query*//*# sourceMappingURL=style.css.map */

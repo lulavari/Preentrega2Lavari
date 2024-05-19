@@ -3,11 +3,11 @@
 
 .formulario-contacto{
     background-color: $color-secundario;
-    width: 550px;
-    margin: 50px auto 50px auto;
+    width: 500px;
+    margin: 20px auto 20px auto;
     padding: 10px;
     border-radius: 5px;
-    translate: 250px;
+    
 }
    
 .form-contactos-grupo{
@@ -31,10 +31,6 @@
 .form-contactos-grupo-input::placeholder{
     color: $color-contraste;
 }
-.mapa{
-    padding: 20px;
-    translate: 0px -350px;
-}
 
 .botonformulario{ 
     width: 100%;
@@ -44,16 +40,28 @@
     font-weight: bold;
     padding: 10px 5px;
     border-radius: 5px;
-}
-.redes-container{
-   margin: 0;
-   display: flex;
-   translate: 700px -400px;
-   list-style: none;
+    text-align: center;
 }
 
-a{
+.info p{
+    font-size: 30px;
     color: $color-secundario;
-    margin: 10px;
-    justify-content: flex-end;
+    display: flex;
+    text-decoration: underline;
+    justify-content: center;
+    text-align: center;
+}
+
+.info a{
+    font-size: 20px;
+    display: flex;
+    text-decoration: none;
+    width: 100%;
+    margin: 15px 0 15px 5px ;
+    color: $color-secundario;
+    font-weight: 500px;
+    justify-content: center;
+}
+.mapa{
+    margin: auto 20px auto 20px;
 }

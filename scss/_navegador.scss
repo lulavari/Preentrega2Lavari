@@ -9,22 +9,20 @@
     align-items: center;
 }
 
-.ícono-menu {
-    color: black;
+.ícono-menu{
     font-size: 25px;
+    color: white;
     display: none;
-    @media (max-width: 576px){
-        display: block;
-    }
- }
-
+}
 
 .logo {
     width: 10%;
     height: 10%;
-    position: relative;
-    display: block;
-}
+    display: flex;   
+    flex-direction: column;
+    float: left;
+ }
+
 .navegador-links { 
    display: flex;
    gap: 20px;
@@ -35,10 +33,29 @@
 
 .navegador-link{
     list-style: none;
-
     a{
         color: black;
         display: block;
         text-decoration: none;
+    }
+}
+
+@media(max-width:1024px){
+    header{
+        position: relative;
+    }
+    
+    .ícono-menu {
+        display: flex;
+        position: absolute;
+        font-size: 25px;
+        color: $color-secundario;
+        margin:10px;
+        top:0;
+        right:0;
+        text-align: center;
+    }
+    .navegador-links{
+        display: none;
     }
 }
