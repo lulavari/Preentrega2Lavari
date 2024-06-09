@@ -15,20 +15,28 @@
 }
 
 /* Navegador*/
+@media (max-width: 1024px) {
+  header {
+    position: relative;
+  }
+}
 .navegador {
-  background-color: white;
-  width: 100%;
-  position: sticky;
-  top: 0px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  position: relative;
 }
 
 .ícono-menu {
   font-size: 25px;
-  color: white;
-  display: none;
+  color: #730D0D;
+  display: flex;
+  position: absolute;
+  margin: 10px;
+  top: 0;
+  right: 0;
+  text-align: center;
+}
+
+.ícono-menu:hover + .navegador-links {
+  right: 0;
 }
 
 .logo {
@@ -40,11 +48,17 @@
 }
 
 .navegador-links {
+  position: absolute;
+  top: 0;
+  right: -500px;
+  width: 250px;
+  height: 100vh;
+  padding-top: 70px;
+  background-color: white;
   display: flex;
-  gap: 20px;
-  padding: 40px 10px;
-  text-align: right;
-  font-weight: bold;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
 }
 
 .navegador-link {
@@ -54,26 +68,24 @@
   color: black;
   display: block;
   text-decoration: none;
+  font-size: 25px;
 }
 
-@media (max-width: 1024px) {
-  header {
-    position: relative;
-  }
-  .ícono-menu {
-    display: flex;
-    position: absolute;
-    font-size: 25px;
-    color: #730D0D;
-    margin: 10px;
-    top: 0;
-    right: 0;
-    text-align: center;
-  }
-  .navegador-links {
-    display: none;
-  }
+.ícono-menu {
+  display: flex;
+  position: absolute;
+  font-size: 25px;
+  color: #730D0D;
+  margin: 10px;
+  top: 0;
+  right: 0;
+  text-align: center;
 }
+
+.navegador-links:hover {
+  right: 0;
+}
+
 /*Inicio*/
 .portada-imagen {
   width: 100%;
