@@ -284,6 +284,77 @@
   border-radius: 5px;
 }
 
+/*-productos-*/
+.productos {
+  margin-top: 70px;
+  color: #730D0D; }
+  .productos h3 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    padding: 20px 10px 10px 10px; }
+  .productos h2 {
+    font-size: 2rem;
+    font-weight: 200;
+    text-align: center;
+    letter-spacing: 0.5px;
+    padding: 0px 10px 10px 10px;
+    margin-bottom: 30px; }
+  .productos .productos-contenedor {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap; }
+    .productos .productos-contenedor .productos-varios {
+      width: 400px;
+      height: 650px;
+      margin: 20px 20px; }
+      .productos .productos-contenedor .productos-varios div img {
+        width: 400px;
+        height: 100%;
+        object-fit: contain;
+        margin-bottom: 10px;
+        border-radius: 16px; }
+      .productos .productos-contenedor .productos-varios div h4 {
+        font-size: 1.4rem;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 2px; }
+      .productos .productos-contenedor .productos-varios div p {
+        font-weight: 200;
+        font-size: 1.2rem;
+        margin-bottom: 20px; }
+      .productos .productos-contenedor .productos-varios .content-circle {
+        display: flex;
+        justify-content: left;
+        padding-bottom: 40px; }
+        .productos .productos-contenedor .productos-varios .content-circle .circle {
+          width: 32px;
+          height: 32px;
+          background-color: #dfc0ff;
+          border-radius: 50%;
+          margin-right: 20px;
+          cursor: pointer;
+          transition: 500ms ease; }
+          .productos .productos-contenedor .productos-varios .content-circle .circle:hover {
+            background-color: #cca1ff;
+            border-radius: 50%; }
+      .productos .productos-contenedor .productos-varios a {
+        font-size: 1rem;
+        font-weight: 300;
+        text-decoration: none;
+        color: #9f63ff;
+        border: 1px solid #9f63ff;
+        border-radius: 10px;
+        padding: 15px;
+        transition: 300ms ease-in;
+        cursor: pointer; }
+        .productos .productos-contenedor .productos-varios a:hover {
+          color: white;
+          background-color: #9f63ff; }
+
 /*Footer*/
 .piedepagina {
   padding: 10px;
