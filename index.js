@@ -1,180 +1,191 @@
-//! CARGA DATOS PARA REGISTRO
-alert("Te damos la bienvenida a ÓPTICA NEW VISION\nPor favor, regístrate para comenzar a comprar.");
+document.addEventListener('DOMContentLoaded', () => {
 
-let username = "";
-let password = "";
+    // Variables
+    const baseDeDatos = [
+        {
+            id: 1,
+            nombre: 'Ray Ban Erika',
+            precio: 80000,
+            imagen: 'rberika.jfif'
+           
+        },
+        {
+            id: 2,
+            nombre: 'Ray Ban Justin',
+            precio:80000,
+            imagen: 'rbjustin.jfif'
+        },
+        {
+            id: 3,
+            nombre: 'Ray Ban Aviator',
+            precio: 85000,
+            imagen: 'rbaviator.jfif'
+        },
+      
+    ];
 
-while (username === ""){
-    username = prompt("Ingresa un nombre de usuario: ");
-}
+    let carrito = [];
+    const divisa = '$';
+    const DOMitems = document.querySelector('#items');
+    const DOMcarrito = document.querySelector('#carrito');
+    const DOMtotal = document.querySelector('#total');
+    const DOMbotonVaciar = document.querySelector('#boton-vaciar');
+    const miLocalStorage = window.localStorage;
 
-while (password === "" || password.length < 8 || password.length > 14){
-    password = prompt("Ingresa una contraseña (entre 8 y 14 caracteres): ");
-}
+    // Funciones
 
-alert("Registro exitoso.\nTe damos la bienvenida a nuestra tienda " + username);
-
-console.log("Guarda esta información en un lugar seguro para tus futuras compras.\nNombre de usuario: " + username + "\n" + "Contraseña: " + password) + "\n";
-
-//! FILTRAR BÚSQUEDA Y STOCK DE PRODUCTO (FILTER/SOME)
-
-const BuscarProductos = [
-    {
-        name: "Ray Ban Aviator",
-        price: 35000
-    },
-    {
-        name: "Ray Ban Justin",
-        price: 25000
-    },
-    {
-        name: "Ray Ban Erika",
-        price: 25000
-    },
-    {
-        name: "Vulk RS Burden",
-        price: 15000
-    },
-    {
-        name: "Vulk RS Tattoo You",
-        price: 20000
-    },
-    {
-        name: "Vulk RS Shattered",
-        price: 15000
-    },
-];
-
-const names = searchProducts.map(product => product.name);
-const list = names.join('\n');
-
-let chosenProd = prompt(`Ingresa el producto de esta lista que te interese buscar: \n${list}`);
-console.log(searchProducts.filter((elem) => elem.name.includes(chosenProd)));
-
-let stockProd = prompt(`Ingresa el producto que te interese consultar su stock:\n(Esta lista opcional)\n${list}`);
-/* console.log(searchProducts.some((elem) => elem.name == stockProd)); */
-let found = searchProducts.some((elem) => elem.name === stockProd);
-
-if (found) {
-    alert("Hay stock del producto ingresado.");
-} else {
-    alert("El producto ingresado no se encuentra disponible.");
-    found = false;
-}
-
-console.log(found);
-
-//! REALIZANDO COMPRA DE LOS PRODUCTOS
-//LISTA DE PRODUCTOS
-let products = [
-    {
-        name: "Ray Ban Aviator",
-        price: 35000
-    },
-    {
-        name: "Ray Ban Justin",
-        price: 25000
-    },
-    {
-        name: "Ray Ban Erika",
-        price: 25000
-    },
-    {
-        name: "Vulk RS Burden",
-        price: 15000
-    },
-    {
-        name: "Vulk RS Tattoo You",
-        price: 20000
-    },
-    {
-        name: "Vulk RS Shattered",
-        price: 15000
-    },
-];
-
-//MOSTRAR LISTA
-function showProducts() {
-    console.log("--- LISTA DE PRODUCTOS ---");
-    for (let i = 0; i < products.length; i++) {
-    console.log(`${i + 1}. ${products[i].name} - S/ ${products[i].price}`);
-        }
-}
-
-//COMPRAR PRODUCTOS
-    function buyProducts() {
-        let cart = [];
-        let option;
-    
-        while (option !== "0") {
-        showProducts();
-        console.log("0. Terminar compra");
-        option = prompt("Selecciona un número para comprar (0 para terminar)\nMira la lista desde la consola.");
-    
-        if (option !== "0") {
-            let productIndex = Number(option) - 1;
-    
-            if (productIndex >= 0 && productIndex < products.length) {
-            let quantity = Number(prompt(`¿Cuántos ${products[productIndex].name} quieres comprar?`));
-            let product = {
-                ...products[productIndex],
-                quantity: quantity
-            };
-            cart.push(product);
-            alert(`Producto añadido al carrito: ${product.name}`);
-            console.log(`Producto añadido al carrito: ${product.name}`);
-    
-            alert(`La cantidad que compraste: ${product.quantity}`);
-            console.log(`La cantidad que compraste: ${product.quantity}`);
-            } else {
-            alert("Esa opción no es válida. Inténtalo nuevamente.")
-            }
-        }
-        }
-
-        console.log("--- RESUMEN DE COMPRA ---");
-        let total = 0;
-
-        for (let i = 0; i < cart.length; i++) {
-        let product = cart[i];
-        total += product.price * product.quantity;
-        }
-
-        let igv = total * 0.18;
-        let subtotal = total - igv;
-
-        alert(`Subtotal: S/ ${subtotal.toFixed(2)}`);
-        console.log(`Subtotal: S/ ${subtotal.toFixed(2)}`);
-        alert(`IGV (18%): S/ ${igv.toFixed(2)}`);
-        console.log(`IGV (18%): S/ ${igv.toFixed(2)}`);
-        alert(`Total a pagar : S/ ${total.toFixed(2)}`);
-        console.log(`Total a pagar : S/ ${total.toFixed(2)}`);
+    /**
+    * Dibuja todos los productos a partir de la base de datos. No confundir con el carrito
+    */
+    function renderizarProductos() {
+        baseDeDatos.forEach((info) => {
+            // Estructura
+            const miNodo = document.createElement('div');
+            miNodo.classList.add('card', 'col-sm-4');
+            // Body
+            const miNodoCardBody = document.createElement('div');
+            miNodoCardBody.classList.add('card-body');
+            // Titulo
+            const miNodoTitle = document.createElement('h5');
+            miNodoTitle.classList.add('card-title');
+            miNodoTitle.textContent = info.nombre;
+            // Imagen
+            const miNodoImagen = document.createElement('img');
+            miNodoImagen.classList.add('img-fluid');
+            miNodoImagen.setAttribute('src', info.imagen);
+            // Precio
+            const miNodoPrecio = document.createElement('p');
+            miNodoPrecio.classList.add('card-text');
+            miNodoPrecio.textContent = `${info.precio}${divisa}`;
+            // Boton
+            const miNodoBoton = document.createElement('button');
+            miNodoBoton.classList.add('btn', 'btn-primary');
+            miNodoBoton.textContent = '+';
+            miNodoBoton.setAttribute('marcador', info.id);
+            miNodoBoton.addEventListener('click', anyadirProductoAlCarrito);
+            // Insertamos
+            miNodoCardBody.appendChild(miNodoImagen);
+            miNodoCardBody.appendChild(miNodoTitle);
+            miNodoCardBody.appendChild(miNodoPrecio);
+            miNodoCardBody.appendChild(miNodoBoton);
+            miNodo.appendChild(miNodoCardBody);
+            DOMitems.appendChild(miNodo);
+        });
     }
 
-  //EJECUTAR COMPRA DE PRODUCTOS
-    buyProducts();
-
-//! ESCOGE COLOR DEL PRODUCTO
-
-while(true){
-    let colour = prompt("Elige un color (negro, sepia y gris)").toString().toUpperCase();
-    let size = prompt("Ahora, elige una talla (S, M, L").toString().toUpperCase();
-
-    switch (colour) {
-        case "NEGRO":
-            alert(`Has elegido el color ${colour} en talla ${size}`);
-            break;
-        case "SEPIA":
-            alert(`Has elegido el color ${colour} en talla ${size}`);
-            break;
-        case "GRIS":
-            alert(`Has elegido el color ${colour} en talla ${size}`);
-            break;
-        default:
-            alert("Ingresaste un color no válido");
-        continue;
+    /**
+    * Evento para añadir un producto al carrito de la compra
+    */
+    function anyadirProductoAlCarrito(evento) {
+        // Anyadimos el Nodo a nuestro carrito
+        carrito.push(evento.target.getAttribute('marcador'))
+        // Actualizamos el carrito
+        renderizarCarrito();
+        // Actualizamos el LocalStorage
+        guardarCarritoEnLocalStorage();
     }
-    break;
-}
 
-alert ("Gracias por tu compra.\nEsperamos verte de nuevo pronto.")
+    /**
+    * Dibuja todos los productos guardados en el carrito
+    */
+    function renderizarCarrito() {
+        // Vaciamos todo el html
+        DOMcarrito.textContent = '';
+        // Quitamos los duplicados
+        const carritoSinDuplicados = [...new Set(carrito)];
+        // Generamos los Nodos a partir de carrito
+        carritoSinDuplicados.forEach((item) => {
+            // Obtenemos el item que necesitamos de la variable base de datos
+            const miItem = baseDeDatos.filter((itemBaseDatos) => {
+                // ¿Coincide las id? Solo puede existir un caso
+                return itemBaseDatos.id === parseInt(item);
+            });
+            // Cuenta el número de veces que se repite el producto
+            const numeroUnidadesItem = carrito.reduce((total, itemId) => {
+                // ¿Coincide las id? Incremento el contador, en caso contrario no mantengo
+                return itemId === item ? total += 1 : total;
+            }, 0);
+            // Creamos el nodo del item del carrito
+            const miNodo = document.createElement('li');
+            miNodo.classList.add('list-group-item', 'text-right', 'mx-2');
+            miNodo.textContent = `${numeroUnidadesItem} x ${miItem[0].nombre} - ${miItem[0].precio}${divisa}`;
+            // Boton de borrar
+            const miBoton = document.createElement('button');
+            miBoton.classList.add('btn', 'btn-danger', 'mx-5');
+            miBoton.textContent = 'X';
+            miBoton.style.marginLeft = '1rem';
+            miBoton.dataset.item = item;
+            miBoton.addEventListener('click', borrarItemCarrito);
+            // Mezclamos nodos
+            miNodo.appendChild(miBoton);
+            DOMcarrito.appendChild(miNodo);
+        });
+        // Renderizamos el precio total en el HTML
+        DOMtotal.textContent = calcularTotal();
+    }
+
+    /**
+    * Evento para borrar un elemento del carrito
+    */
+    function borrarItemCarrito(evento) {
+        // Obtenemos el producto ID que hay en el boton pulsado
+        const id = evento.target.dataset.item;
+        // Borramos todos los productos
+        carrito = carrito.filter((carritoId) => {
+            return carritoId !== id;
+        });
+        // volvemos a renderizar
+        renderizarCarrito();
+        // Actualizamos el LocalStorage
+        guardarCarritoEnLocalStorage();
+
+    }
+
+    /**
+     * Calcula el precio total teniendo en cuenta los productos repetidos
+     */
+    function calcularTotal() {
+        // Recorremos el array del carrito
+        return carrito.reduce((total, item) => {
+            // De cada elemento obtenemos su precio
+            const miItem = baseDeDatos.filter((itemBaseDatos) => {
+                return itemBaseDatos.id === parseInt(item);
+            });
+            // Los sumamos al total
+            return total + miItem[0].precio;
+        }, 0).toFixed(2);
+    }
+
+    /**
+    * Varia el carrito y vuelve a dibujarlo
+    */
+    function vaciarCarrito() {
+        // Limpiamos los productos guardados
+        carrito = [];
+        // Renderizamos los cambios
+        renderizarCarrito();
+        // Borra LocalStorage
+        localStorage.clear();
+
+    }
+
+    function guardarCarritoEnLocalStorage () {
+        miLocalStorage.setItem('carrito', JSON.stringify(carrito));
+    }
+
+    function cargarCarritoDeLocalStorage () {
+        // ¿Existe un carrito previo guardado en LocalStorage?
+        if (miLocalStorage.getItem('carrito') !== null) {
+            // Carga la información
+            carrito = JSON.parse(miLocalStorage.getItem('carrito'));
+        }
+    }
+
+    // Eventos
+    DOMbotonVaciar.addEventListener('click', vaciarCarrito);
+
+    // Inicio
+    cargarCarritoDeLocalStorage();
+    renderizarProductos();
+    renderizarCarrito();
+});

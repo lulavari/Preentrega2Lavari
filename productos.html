@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 </head>
    <body> 
       <header class="encabezado">
@@ -28,100 +29,19 @@
      </div>
 </header>
 <main>
-    <section class="gallery">
-    <h3>Nuestros Productos</h3>
-    <h2>Te ofrecemos una amplia selección de productos.</h2>
-
-    <div class="gallery-content">
-      <div class="gallery-products">
-        <div>
-          <img src="./img/rb aviator.jfif" alt="Ray Ban Aviator" />
-          <h4>Ray Ban Aviator</h4>
-        </div>
-
-        <div class="colour-circle">
-          <div class="colour"></div>
-          <div class="colour"></div>
-          <div class="colour"></div>
-        </div>
-
-        <a href="">Comprar ahora →</a>
-      </div>
-
-      <div class="gallery-products">
-        <div>
-          <img src="./img/rb justin.jfif" alt="Ray Ban Justin" />
-          <h4>Ray Ban Justin</h4>
-        </div>
-
-        <div class="colour-circle">
-          <div class="colour"></div>
-          <div class="colour"></div>
-          <div class="colour"></div>
-        </div>
-
-        <a href="">Comprar ahora →</a>
-      </div>
-
-      <div class="gallery-products">
-        <div>
-          <img src="./img/rb erika.jfif" alt="Ray Ban Erika" />
-          <h4>Ray Ban Erika</h4>
-        </div>
-
-        <div class="colour-circle">
-          <div class="colour"></div>
-          <div class="colour"></div>
-          <div class="colour"></div>
-          <div class="colour"></div>
-        </div>
-
-        <a href="">Comprar ahora →</a>
-      </div>
-
-      <div class="gallery-products">
-        <div>
-          <img src="./img/vulk rs 1.jfif" alt="Vulk RS1" />
-          <h4>Vulk Rolling Stones Burden</h4>
-        </div>
-
-        <div class="colour-circle">
-          <div class="colour"></div>
-          <div class="colour"></div>
-          <div class="colour"></div>
-        </div>
-
-        <a href="">Comprar ahora →</a>
-      </div>
-
-      <div class="gallery-products">
-        <div>
-          <img src="./img/vulk rs2.jfif" alt="Vulk RS2" />
-          <h4>Vulk Rolling Stones Tattoo You</h4>
-        </div>
-
-        <div class="colour-circle">
-          <div class="colour"></div>
-          <div class="colour"></div>
-        </div>
-
-        <a href="">Comprar ahora →</a>
-      </div>
-
-      <div class="gallery-products">
-        <div>
-          <img src="./img/vulk rs3.jfif" alt="Vulk RS3" />
-          <h4>Vulk Rolling Shattered</h4>
-        </div>
-        <div class="colour-circle">
-            <div class="colour"></div>
-            <div class="colour"></div>
-          </div>
-  
-          <a href="">Comprar ahora →</a>
-        </div>
-    </div>
-  </section>
+  <div class="container">
+    <div class="row">
+        <!-- Elementos generados a partir del JSON -->
+        <main id="items" class="col-sm-8 row"></main>
+        <!-- Carrito -->
+        <aside class="col-sm-4">
+            <h2>Carrito</h2>
+            <!-- Elementos del carrito -->
+            <ul id="carrito" class="list-group"></ul>
+            <hr>
+            <!-- Precio total -->
+            <p class="text-right">Total:$<span id="total"></span></p>
+            <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
 </main>
 </aside>
 <footer class="piedepagina">
